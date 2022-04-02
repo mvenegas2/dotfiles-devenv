@@ -1,0 +1,9 @@
+#!/bin/bash
+
+tmux=`which tmux`
+
+$tmux attach-session -t $1
+if [[ $? != 0 ]] ; then
+    echo creating new session $1
+    $tmux new -s $1
+fi

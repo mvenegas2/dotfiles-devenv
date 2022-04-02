@@ -1,0 +1,14 @@
+[user]
+	name = Matt Mukerjee
+	email = mukerjee@nefeli.io
+[diff]
+[pull]
+  rebase = true
+[push]
+	default = current
+[core]
+	editor = emacs
+[merge]
+	conflictstyle = diff3
+[url "ssh://git@github.com/nefeli"]
+  insteadof = https://github.com/nefeli
