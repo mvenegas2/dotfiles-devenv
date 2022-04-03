@@ -6,6 +6,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/
 
 sudo chsh -s /bin/zsh $USER
 
+rm -rf ~/.dotfiles
 mv ~/dotfiles ~/.dotfiles
 ln -fs ~/.dotfiles/dotsyncrc ~/.dotsyncrc
 
