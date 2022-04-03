@@ -1,3 +1,54 @@
+;; Standard package.el + MELPA setup
+;; (See also: https://github.com/milkypostman/melpa#usage)
+
+(require 'package)
+(setq package-check-signature nil)  ;; issues with elpa...
+(add-to-list 'package-archives
+	     '("gnu" . "https://elpa.gnu.org/packages/"))
+(add-to-list 'package-archives
+	     '("melpa" . "https://melpa.org/packages/"))
+(package-initialize)
+
+; list the packages you want
+(setq package-list
+    '(protobuf-mode
+      js2-mode
+      terraform-mode
+      hcl-mode
+      bracketed-paste
+      flycheck-mypy
+      isortify
+      blacken
+      yaml-mode
+      dockerfile-mode
+      flycheck-golangci-lint
+      typescript-mode
+      groovy-mode
+      git-commit-insert-issue
+      company
+      gotest
+      flycheck
+      go-projectile
+      git-gutter
+      magit
+      nhexl-mode
+      jedi))
+
+; fetch the list of packages available
+(unless package-archive-contents
+  (package-refresh-contents))
+
+; install the missing packages
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
+
+(defvar custom/packages '()
+  "Default packages")
+
+;; remove cl deprecation warning...
+(setq byte-compile-warnings '(cl-functions))
+
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (setq-default fill-column 80)
 (setq-default c-basic-offset 2)
@@ -60,25 +111,6 @@
 (load-file "~/.dotfiles/s.el")
 (load-file "~/.dotfiles/robot-mode.el")
 
-;; Standard package.el + MELPA setup
-;; (See also: https://github.com/milkypostman/melpa#usage)
-(require 'package)
-(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
-                    (not (gnutls-available-p))))
-       (proto (if no-ssl "http" "https")))
-  (when no-ssl (warn "\
-Your version of Emacs does not support SSL connections,
-which is unsafe because it allows man-in-the-middle attacks.
-There are two things you can do about this warning:
-1. Install an Emacs version that does support SSL and be safe.
-2. Remove this warning from your init file so you won't see it again."))
-  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
-  ;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
-  ;; and `package-pinned-packages`. Most users will not need or want to do this.
-  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
-  )
-(package-initialize)
-
 ;; Standard Jedi.el setting
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
@@ -104,7 +136,7 @@ There are two things you can do about this warning:
  '(magit-diff-section-arguments (quote ("--no-ext-diff")))
  '(package-selected-packages
    (quote
-    (protobuf-mode js2-mode terraform-mode hcl-mode bracketed-paste flycheck-mypy isortify blacken yaml-mode bazel-mode dockerfile-mode flycheck-golangci-lint typescript-mode groovy-mode git-commit-insert-issue company gotest flycheck go-projectile git-gutter magit nhexl-mode jedi)))
+    (protobuf-mode js2-mode terraform-mode hcl-mode bracketed-paste flycheck-mypy isortify blacken yaml-mode dockerfile-mode flycheck-golangci-lint typescript-mode groovy-mode git-commit-insert-issue company gotest flycheck go-projectile git-gutter magit nhexl-mode jedi)))
  '(python-shell-interpreter "python3"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -184,9 +216,6 @@ There are two things you can do about this warning:
     (add-to-list 'compilation-error-regexp-alist elt t)))
 (add-hook 'go-mode-hook 'prepend-go-compilation-regexps)
 
-(load "/usr/share/emacs/site-lisp/clang-format-5.0/clang-format.el")
-(global-set-key [C-M-tab] 'clang-format-region)
-
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 
@@ -195,5 +224,5 @@ There are two things you can do about this warning:
              (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
 (global-flycheck-mode 1)
-(with-eval-after-load 'flycheck
-  (add-hook 'flycheck-mode-hook #'flycheck-pycheckers-setup))
+;; (with-eval-after-load 'flycheck
+;;   (add-hook 'flycheck-mode-hook #'flycheck-pycheckers-setup))
