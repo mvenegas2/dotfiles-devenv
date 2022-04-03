@@ -52,7 +52,7 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 . $HOME/.dotfiles/z.sh
-plugins=(git brew osx z history pip python zsh-syntax-highlighting)
+plugins=(git z history pip python zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 

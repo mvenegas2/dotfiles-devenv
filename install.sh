@@ -1,5 +1,12 @@
 #!/bin/bash -ex
 
-~/dotfiles/dotsync -L
+git clone https://github.com/robbyrussell/oh-my-zsh ~/.oh-my-zsh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+sudo chsh -s /bin/zsh $USER
 
-chsh -s /bin/zsh
+mv ~/dotfiles ~/.dotfiles
+ln -fs ~/.dotfiles/dotsyncrc ~/.dotsyncrc
+
+cd ~/.dotfiles
+./dotsync -I
+./dotsync -L
