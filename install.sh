@@ -13,3 +13,13 @@ ln -fs ~/.dotfiles/dotsyncrc ~/.dotsyncrc
 cd ~/.dotfiles
 ./dotsync -I
 ./dotsync -L
+
+# goodies
+sudo apt-get update
+sudo apt-get install -y tig software-properties-common
+
+# upgrade emacs
+sudo apt-get remove 'emacs*'
+yes | sudo add-apt-repository ppa:ubuntu-elisp/ppa
+sudo apt-get update
+sudo apt-get install -y emacs-snapshot gnupg2
