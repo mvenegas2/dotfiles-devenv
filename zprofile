@@ -25,5 +25,4 @@ compinit
 # End of lines added by compinstall
 
 export GOPATH=/opt/go
-export GOROOT=/opt/go
 export PATH=$PATH:/opt/go/bin:$GOPATH/bin:$HOME/.local/bin
