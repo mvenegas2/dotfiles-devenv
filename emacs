@@ -132,11 +132,10 @@
  '(flycheck-python-pycompile-executable "python3")
  '(flycheck-python-pylint-executable "python3")
  '(js-indent-level 2)
- '(magit-diff-refine-hunk (quote all))
- '(magit-diff-section-arguments (quote ("--no-ext-diff")))
+ '(magit-diff-refine-hunk 'all)
+ '(magit-diff-section-arguments '("--no-ext-diff"))
  '(package-selected-packages
-   (quote
-    (protobuf-mode js2-mode terraform-mode hcl-mode bracketed-paste flycheck-mypy isortify blacken yaml-mode dockerfile-mode flycheck-golangci-lint typescript-mode groovy-mode git-commit-insert-issue company gotest flycheck go-projectile git-gutter magit nhexl-mode jedi)))
+   '(protobuf-mode js2-mode terraform-mode hcl-mode bracketed-paste flycheck-mypy isortify blacken yaml-mode dockerfile-mode flycheck-golangci-lint typescript-mode groovy-mode git-commit-insert-issue company gotest flycheck go-projectile git-gutter magit nhexl-mode jedi))
  '(python-shell-interpreter "python3"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

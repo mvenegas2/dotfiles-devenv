@@ -5,7 +5,7 @@
 [pull]
   rebase = true
 [push]
-	default = current
+	default = simple
 [core]
 	editor = emacs
 [merge]
