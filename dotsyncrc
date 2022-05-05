@@ -22,7 +22,6 @@ gitconfig
 oh-my-zsh/themes/agnoster.zsh-theme:.oh-my-zsh/themes/agnoster.zsh-theme
 oh-my-zsh/plugins/git/git.plugin.zsh:.oh-my-zsh/plugins/git/git.plugin.zsh
 ssh/authorized_keys:.ssh/authorized_keys
-ssh/config:.ssh/config
 ssh/rc:.ssh/rc
 tmux.conf
 zprofile
