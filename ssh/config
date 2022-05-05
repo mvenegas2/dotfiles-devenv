@@ -1,6 +1,0 @@
-Host *
-  ServerAliveInterval 60
-
-Host titan*
-  User nefeli
-  IdentityFile ~/.vagrant.d/insecure_private_key
