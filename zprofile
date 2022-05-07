@@ -26,4 +26,3 @@ compinit
 
 export GOPATH=/opt/go
 export PATH=$PATH:/opt/go/bin:$GOPATH/bin:$HOME/.local/bin
-export NG_CLI_ANALYTICS=ci
