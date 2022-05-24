@@ -12,3 +12,5 @@
 	conflictstyle = diff3
 [url "ssh://git@github.com/nefeli"]
   insteadof = https://github.com/nefeli
+[url "ssh://git@gitlab.com/nefelinetworks"]
+  insteadof = https://gitlab.com/nefelinetworks
